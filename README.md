@@ -48,7 +48,7 @@ The diagonal of an Adjacency Matrix will be 0
 - Requires O(V<sup>2</sup>) space
 - Iterating over all edges takes O(V<sup>2</sup>) time
 
-### Adjacency List
+## Adjacency List
 Each node is associated with a list of nodes that are adjacent to it
 A -> [B, C]
 B -> [C]
