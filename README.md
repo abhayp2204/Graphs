@@ -1,1 +1,4 @@
-# Graphs
+# Graph Algorithms
+
+- DFS
+- BFS
