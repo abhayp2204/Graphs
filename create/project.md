@@ -118,7 +118,32 @@ it backtracks and continues.
 
 ![DFS1](../img/dfs1.png)
 
-- hello
+- In this case, the source is node 0. From here we can go to node 0 or node 9. We arbitrarily select node 9
+and proceed.
+- This happens until we reach node 11 from where we cannot go to any unvisited nodes. At this point, we
+backtrack all the way to node 7.
+- Now, we select an unvisited node and the process continues.
+- We finish when we have backtracked back to the source ie node 0.
+
+Pseudocode:
+
+```java
+    // Global Variables
+    n = number of nodes in the graph
+    g = adjacency list representing graph
+    S = source node
+    visited = [false, ..., false];
+
+    function dfs(node):
+        if visited[node]: return
+        visited[node] = true
+
+        neighbours = graph[node]
+        for i in neighbours:
+            dfs(i)
+
+    dfs(S)
+```
 
 Time Complexity: O(V + E)
 
