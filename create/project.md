@@ -1,7 +1,6 @@
 # Graph Algorithms
 # Name: Abhay Patil
 # Roll: 2020101022
-this is the intro
 
 ## What is an algorithm?
 In the most general sense, an algorithm is a series of instructions that tells the computer how to transform
@@ -78,7 +77,8 @@ Greedy algorithms cannot be used everywhere. Consider the following problem.
 We are required to find the algorithm with the largest sum. The greedy algorithm fails, because it makes
 decisions based on the information it has at any one single step, without regard for the overall problem.
 Herethe algorithm choses 12 because it is larger than 7. It has no way of knowing that the left branch
-still has a higher sum overall.
+still has a higher sum overall. The choice made by a greedy algorithm may be influenced by the choices made
+so far, but it cannot be aware of future choices it may make, and this is where it sometimes falls short.
 
 ![Tree Image](../img/tree.png)
 
@@ -86,12 +86,42 @@ For a greedy algorithm to work, it must satisfy the following two properties:
 - `Greedy choice property`: An overall optimal solution can be reached by selecting the optimal solution at each step.
 - `Optimal substructure`  : An optimal solution to the entire problem contains the optimal solutions to the sub-problems.
 
-### Greedy Algorithms
-### Dynamic Algorithms
+Examples of Greedy algorithms:
+- Dijkstra's Algorithm (Find shortest path)
+- Huffman Coding (Compress data)
+
+### Dynamic Progamming
+Dynamic programming is tightly tied to recursive algorithms. Whenever we see a recursive algorithm that has
+multiple calls for the same inputs, we can optimize it with dynamic programming. All we have to do is store
+the results of the subproblems, so that we don't have to recompute them when needed later on.
+
+This optimization trick reduces time complexity from exponential to polynomial. For example, the time complexity
+for the recursive algorithm for finding the n<sup>th</sup> fibonacci number is exponential, whereas with
+dynamic programming, it is linear.
+
+Examples of dynamic programming:
+- nth Fibonacci number
+- Partitioning sets
+- Binomial coefficient
+- Longest repeated subsequence
+- Shortest path
 
 ## Graph Algorithms
 
-### DFS
+### Depth First Search (DFS)
+This is an algorithm to traverse a graph. It is the most fundamental algorithm used to explore nodes and edges
+of a graph. On it's own, DFS isn't all that useful. However, when augmented to perform other tasks such as
+count connected components, determine connectivity, find bridges etc is when DFS really shines.
+
+A DFS plunges depth first into a graph, chosing any edge at random until it cannot go further, at which point
+it backtracks and continues.
+
+![DFS1](../img/dfs1.png)
+
+- hello
+
+Time Complexity: O(V + E)
+
 ### BFS
 ### MST
 
