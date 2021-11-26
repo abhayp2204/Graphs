@@ -202,6 +202,11 @@ nodes to 6 and 1 respectively.
     end while
 ```
 
+**Dynamic Programming in Dijkstra's Algorithm**  
+Note that Dijkstra's algorithm uses the existing distance(say from node A to D) to calculate the distance for another node
+(from D to E). The distance from A to D does not have to be recalculated to find the distance from A to E. Hence,
+Dijkstra's Shortest Path Algorithm is an example of Dynamic Programming.
+
 ### MST
 
 ## Applications of Graph Algorithms
