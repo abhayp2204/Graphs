@@ -125,7 +125,7 @@ backtrack all the way to node 7.
 - Now, we select an unvisited node and the process continues.
 - We finish when we have backtracked back to the source ie node 0.
 
-Pseudocode:
+**Algorithm**
 
 ```java
     // Global Variables
@@ -169,7 +169,6 @@ are clear when we use graphs to simulate roads of a city, a computer network, a 
 finds the shortest distance between any two vertices, but also the shortest path between them.
 
 Consider the below graph:
-<!-- ![DFS1](../img/dfs1.png) -->
 ![Dijkstra](../img/dijkstra.png)
 
 - Initially, we set the distances from node A to all other nodes to infinity(in reality, this could just be a very
@@ -184,6 +183,24 @@ nodes to 6 and 1 respectively.
 - Repeat this process until all nodes are visited. At this point our table is complete.
 - The shortest path from A to any node can be derived from the previous vertex column.
 - For example, we get to C via E, E via D and D via A, so the path is A->D->E->C.
+
+**Algorithm**
+```java
+    // Setup
+    D[start] = 0
+    D[all other vertices] = Infinity
+
+    while(vertices remain unvisited)
+        Vist unvisited vertex closest to current vertex C
+        for each unvisited neighbour N of C
+            if(dist(start, N) < D[N])
+                Update shortest distance to this vertex
+                Update the previous vertex with C
+            end if
+        end for
+        Add the current vertex to the list of visited vertices
+    end while
+```
 
 ### MST
 
