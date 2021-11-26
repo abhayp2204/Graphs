@@ -207,6 +207,19 @@ Note that Dijkstra's algorithm uses the existing distance(say from node A to D) 
 (from D to E). The distance from A to D does not have to be recalculated to find the distance from A to E. Hence,
 Dijkstra's Shortest Path Algorithm is an example of Dynamic Programming.
 
+**Time Complexity**
+Using min-heaps, the time complexity for this algorithm is O(E + VlogV)
+
+### Prim's Minimum Spanning Tree (MST) Algorithm
+Given an undirected graph with weighted edges, a minimum spanning tree(MST) is a subset of the edges of the graph which
+connects all vertices together while minimizing the total edge cost.
+
+An MST may not be unique. It is possible for a certain undirected graph to have multiple MST's with the same minimum cost.
+
+![MST](../img/mst.png)
+
+In the above picture, if we replace the edge (0, 3) with (0, 1) we still have an MST with cost = 14
+
 ### MST
 
 ## Applications of Graph Algorithms
