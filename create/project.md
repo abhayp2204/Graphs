@@ -144,7 +144,7 @@ Pseudocode:
 
     dfs(S)  
 ```
-
+---
 **Backtracking in DFS**  
 The DFS algorithm uses an algorithm paradigm known as `backtracking`. Backtracking is a general algorithm for finding
 solutions to computational problems that incrementally builds candidates to the solutions, and abandons a candidate
