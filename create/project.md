@@ -151,7 +151,7 @@ solutions to computational problems that incrementally builds candidates to the 
 (backtracking) as soon as it determines that the candidate cannot possibly be completed to a valid solution.
 In our case, the backtracking happens when we come across a node that has no unvisited neighbours and hence we have
 nowhere to go. At this point, we backtrack until we reach a node that has atleast one unvisited neighbour.
-
+---
 **Time Complexity**  
 In the line `visited = [false, ..., false]`, we are initializing V nodes to false. So this is an O(V) operation.
 
@@ -162,7 +162,7 @@ For a node with e edges, the for loop will execute e times. Let n(Ai) denote the
 The total time complexity for this loop will be n(A<sub>1</sub>) + n(A<sub>2</sub>) + ... + n(A<sub>V</sub>) = 2E.
 
 Thus we have O(2V + 2E) = O(V + E)
-
+---
 ### BFS
 ### MST
 
