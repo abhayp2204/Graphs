@@ -220,6 +220,61 @@ An MST may not be unique. It is possible for a certain undirected graph to have 
 
 In the above picture, if we replace the edge (0, 3) with (0, 1) we still have an MST with cost = 14
 
-### MST
+A non-connected graph cannot have an MST, since there is no way for us to have an MST that spans multiple connected components.
+Prim's MST Algorithm must therefore be run on each connected component individually.
+
+**Prim's Algorithm**
+- Maintain a priority queue(PQ) that sorts edges based on minimum cost.
+- The PQ is used to determine which edge to go to next, and the edge used to do so.
+- Start the algorithm on any node S.
+- Mark S as visited and add all the edges of S to the PQ.
+- While the PQ is not empty and the MST has not been formed, dequeue the next cheapest edge from the PQ.
+- If the dequed edge is outdated(the node it points to has alread been visited), then skip it and poll again.
+- Otherwise mark the selected node as visited, and add this edge to the MST.
+- Repeat the same process from this node.
+- We stop when the number of edges in the MST is one less than the number of nodes in the graph, as this is
+what defines a tree.
+- The cost of the MST is the sum of the cost of all the edges in the MST.
+
+**Pseudocode**
+```java
+    V = Number of Vertices in G 
+    pq = Priority Queue
+
+    function lazyPrims()
+        n = V - 1                       // Number of edges in MST
+        mstEdges = [null, ..., null]    //  size n
+        edgeCount, mstCost = 0, 0
+        addEdges(s)
+
+        while(!pq.isEmpty() and edgeCount != n)
+            edge = pq.dequeue()
+            nodeIndex = edge.to         // Note pointed to by the edge
+
+            if visited[nodeIndex]
+                continue
+            
+            mstEdge[edgeCount++] = edge
+            mstCost += edge.Cost
+
+            addEdges(nodeIndex)
+
+        if edgeCount != n
+            return (null, null)         // No MST exists
+
+        return (mstCost, mstEdges)
+```
+        
+
+**Prim's Algorithm as a Greedy ALgorithm**
+Recall that greedy algorithms pick at each step, the most optimal choice. They work if the local optimal choice
+is part of the global optimal solution. Prim's algorithm does exactly this. At each step, we pick the edge with
+minimum cost and finally end up with an MST.
+
+**Time Complexity**
+The time complexity is O((V + E)logV) because each vertex is inserted in the PQ only once and
+insertion into the PQ takes logarithmic time.
+
+The time complexity can be improved to O(E + logV) using Fibonacci Heaps.
 
 ## Applications of Graph Algorithms
