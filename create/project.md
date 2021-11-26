@@ -169,8 +169,8 @@ are clear when we use graphs to simulate roads of a city, a computer network, a 
 finds the shortest distance between any two vertices, but also the shortest path between them.
 
 Consider the below graph:
-<!-- ![DFS1](../img/dfs1.png) -->
-![Dijkstra](../img/dijkstra.png)
+![DFS1](../img/dfs1.png)
+<!-- ![Dijkstra](../img/dijkstra.png) -->
 
 - Initially, we set the distances from node A to all other nodes to infinity(in reality, this could just be a very
 high number). The distance from node A to A itself is set to 0.
