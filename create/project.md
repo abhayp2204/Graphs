@@ -163,7 +163,27 @@ The total time complexity for this loop will be n(A<sub>1</sub>) + n(A<sub>2</su
 
 Thus we have O(2V + 2E) = O(V + E)
 
-### BFS
+### Dijkstra's Algorithm
+Dijkstra's Shortest Path Algorithm finds the shortest path between any two vertices in a graph. It's applications
+are clear when we use graphs to simulate roads of a city, a computer network, a social network etc. It not only
+finds the shortest distance between any two vertices, but also the shortest path between them.
+
+Consider the below graph:
+![Dijkstra](../img/dijkstra.png)
+
+- Initially, we set the distances from node A to all other nodes to infinity(in reality, this could just be a very
+high number). The distance from node A to A itself is set to 0.
+- The distance from A to B is 0 + 6 = 6 and the distance from A to D is 0 + 1 = 1.
+- If the calculated distance to a node is less than the known distance, we update the shortest distance in our table
+- In this case, the known distances to B and D are infinity, so we update the shortest distance for both of these
+nodes to 6 and 1 respectively.
+- The previous vertex column for both B and D is set to A, since we visted these nodes via A.
+- Now that we are done updating the columns of A's neighbours, we mark A as visited.
+- We now visit D since it is closer to B (1 < 6).
+- Repeat this process until all nodes are visited. At this point our table is complete.
+- The shortest path from A to any node can be derived from the previous vertex column.
+- For example, we get to C via E, E via D and D via A, so the path is A->D->E->C.
+
 ### MST
 
 ## Applications of Graph Algorithms
