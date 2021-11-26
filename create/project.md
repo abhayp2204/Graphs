@@ -145,21 +145,21 @@ Pseudocode:
     dfs(S)  
 ```
 
-**Backtracking in DFS**
+**Backtracking in DFS**  
 The DFS algorithm uses an algorithm paradigm known as `backtracking`. Backtracking is a general algorithm for finding
 solutions to computational problems that incrementally builds candidates to the solutions, and abandons a candidate
 (backtracking) as soon as it determines that the candidate cannot possibly be completed to a valid solution.
 In our case, the backtracking happens when we come across a node that has no unvisited neighbours and hence we have
 nowhere to go. At this point, we backtrack until we reach a node that has atleast one unvisited neighbour.
 
-**Time Complexity**
+**Time Complexity**  
 In the line `visited = [false, ..., false]`, we are initializing V nodes to false. So this is an O(V) operation.
 
 Note that `visited[node] = true` is a constant time operation that is executed for each vertex in the graph exactly
 once. So the total time complexity for this line will be O(V).
 
-For a node with n edges, the for loop will execute n times. Let n(Ai) denote the number of edges of node Ai.
-The total time complexity for this loop will be A1 + A2 + ... + Ae = 2E.
+For a node with e edges, the for loop will execute e times. Let n(Ai) denote the number of edges of node Ai.
+The total time complexity for this loop will be n(A<sub>1</sub>) + n(A<sub>2</sub>) + ... + n(A<sub>V</sub>) = 2E.
 
 Thus we have O(2V + 2E) = O(V + E)
 
