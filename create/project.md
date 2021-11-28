@@ -314,3 +314,11 @@ D - B is the thief
 
 This is what the graph would look like:
 ![Crime](../img/crime.png)
+
+Analyzing the graph in the same fashion, we arrive at the following result:
+| Thief | Number of people telling the truth |
+|  ---  | --- |
+|   A   |  2  |
+|   B   |  3  |
+|   C   |  1  |
+|   D   |  2  |
