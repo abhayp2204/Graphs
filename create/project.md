@@ -322,3 +322,6 @@ Analyzing the graph in the same fashion, we arrive at the following result:
 |   B   |  3  |
 |   C   |  1  |
 |   D   |  2  |
+
+In real life, we may not know the exact number of people telling the truth, but consider this situation. A group of 5 friends go on a camping trip and only 4 of them return. These 4 friends are interviewed individually. They are unlikely to lie, because if they do, their story will not be concurrent with the stories of the others. So we can deduce that B is more likely to be the killer than C, since 1 person lying is more likely than 3 people lying.
+
