@@ -278,3 +278,39 @@ insertion into the PQ takes logarithmic time.
 The time complexity can be improved to O(E + logV) using Fibonacci Heaps.
 
 ## Applications of Graph Algorithms
+
+### Solving A Crime
+Let us first consider a simple scenario, and worry about a  more real life situation later.
+Say we have 3 suspects Alice(A), Bob(B) and Charlie(C). These are the statements made by them.
+A - I'm not the thief
+B - A is the thief
+C - I'm not the thief
+
+Assume we know that only 1 person is telling the truth
+Our job is to work out who the thief is.
+Suppose A was the thief, then B would be telling the truth, but so would C. So two people appear to be telling the truth, when it should only be 1, so A is not the thief.
+Suppose B was the thief, then A and C would both be telling the truth, so B can't be the thief.
+Suppose C was the thief, then A would be the only person telling the truth. Hence, only C can be the thief.
+
+This is a more straightforward way of looking at the problem. The problem is that it is difficult to extend this method to when there are many people. In fact, even a case with 4 people would be tedious. So we must look for a more mathematical approach. This is where graphs come into the picture.
+
+Constructing the graph:
+- Represent each suspect as a node in a graph.
+- B accusing A can be represnted by adding a directed edge from B to A.
+- C claims that he is not the thief. This is equivalent to accusing A and B, so we represent this by adding directed edges from C to A and C to B.
+- Similarly, add directed edges from A to B and A to C.
+
+Using the graph:
+- If A is the thief, ignore all the lines coming out of A. B accuses A and C accuses both B and A. So both B and C have a line going into A. Each line represents a true statement (accusing A when A is indeed the thief) and there are 2 such lines when there should only be 1, so A is innocent.
+- Similarly for B, we see that there are 2 lines going into B, meaning B is innocent.
+- For C, there is only one line ie from A to C, so only C can be the thief.
+
+This graphical method is programmable and hence will work with many suspects.
+Consider another suspect D who accuses B. So the statements would like as below:
+A - I'm not the thief
+B - A is the thief
+C - I'm not the thief
+D - B is the thief
+
+This is what the graph would look like:
+![Crime](../img/crime.png)
