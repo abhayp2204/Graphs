@@ -138,7 +138,7 @@ backtrack all the way to node 7.
         if visited[node]: return
         visited[node] = true
 
-        neighbours = graph[node]
+        neighbours = g[node]
         for i in neighbours:
             dfs(i)
 
@@ -162,6 +162,43 @@ For a node with e edges, the for loop will execute e times. Let n(Ai) denote the
 The total time complexity for this loop will be n(A<sub>1</sub>) + n(A<sub>2</sub>) + ... + n(A<sub>V</sub>) = 2E.
 
 Thus we have O(2V + 2E) = O(V + E)
+### Breadth First Search (BFS)
+The Breadth First Search is another fundamental search algorithm used to explore nodes and edges of a graph. It runs with the same time complexity as DFS and is often used as a building block for algorithms. The BFS algorithm is particularly used for one thing: finding the shortest path on unweighted graphs.
+
+A BFS starts at some source node, and explores the neighbouring nodes first, before moving to the next level of neighbours. It does this by maintaining a queue of which nodes to visit next.
+
+Consider the following graph:
+
+![bfs](../img/bfs.png)
+
+- Let's begin the BFS at node 0.
+- Add 0 to the queue. Q = [0]
+- Explore all of 0's unvisited neighbours (9, 7 and 11) and add them to the queue. Q = [0, 9, 7, 11]
+- 9 is next up in the queue, so visit 9. Add 9's unvisited neighbours (10 and 8) to the queue. Q = [0, 9, 7, 11, 10, 8]
+- Next we visit 7, and the process continues until all nodes are visited.
+
+**Algorithm**
+```java
+    n = Number of Nodes in the Graph
+    g = Adjacency List representing Unweighted Graph
+    s = Source Node
+    Q = Queue
+    visited = [false, ..., false]
+
+    function bfs(node):
+        if visited[node]: return
+        visited[node] = true
+
+        neighbours = g[node]
+        for i in neighbours:
+            Q.enqueue(i)
+
+        bfs(Q.next())               // next() returns the first unvisited node in Q
+
+```
+
+**Time Complexity**
+O(V + E)
 
 ### Dijkstra's Algorithm
 Dijkstra's Shortest Path Algorithm finds the shortest path between any two vertices in a graph. It's applications
