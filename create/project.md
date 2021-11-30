@@ -322,15 +322,7 @@ The time complexity can be improved to O(E + logV) using Fibonacci Heaps.
 
 ![Kruskal](../img/kruskal.png)
 
-The first few edges in sorted order along with their cost are:
-- IJ(0)
-- AE(1)
-- CI(1)
-- EF(1)
-- HG(1)
-- BD(2)
-- CJ(2)
-- ED(2)
+The first few edges in sorted order along with their cost are IJ(0), AE(1), CI(1), EF(1), HG(1), BD(2), CJ(2), ED(2).
 
 - Start with IJ. We unify these nodes by coloring them both orange.
 - Then we have AE, we color these nodes purple.
