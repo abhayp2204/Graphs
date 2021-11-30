@@ -314,6 +314,62 @@ insertion into the PQ takes logarithmic time.
 
 The time complexity can be improved to O(E + logV) using Fibonacci Heaps.
 
+### Kruskal's Minimum Spanning Tree (MST) Algorithm
+- Sort the edges in ascending order of their weight.
+- Walk through the sorted edges and look at the two nodes that the edge belongs to.
+- If the edges are already unified, we move on. If not, we include this edge and unify the nodes.
+- The algorithm ends when every edge has been processed or all the vertices have been unified.
+
+![Kruskal](../img/kruskal.png)
+
+The first few edges in sorted order along with their cost are:
+- IJ(0)
+- AE(1)
+- CI(1)
+- EF(1)
+- HG(1)
+- BD(2)
+- CJ(2)
+- ED(2)
+
+- Start with IJ. We unify these nodes by coloring them both orange.
+- Then we have AE, we color these nodes purple.
+- For CI, we note that node I is already part of a group, so we color J orange to match with the group that I is a part of.
+- EF will be colored purple.
+- HG will be colored red.
+- DB will be colored green.
+
+![Kruskal](../img/kruskal2.png)
+
+- Now we have CJ. Note that C and J belong to the same group. So we do not add this edge to prevent cycles.
+- For ED, we merge the groups, so B and D are colored purple.
+- This process goes on until all the nodes belong to the same group.
+
+**Pseudocode**
+```java
+    F: We Will Built Our MST In F
+    findSet: Returns A Set Of All Nodes In The Same Group
+    union: Union Of Two Sets
+    makeSet: Makes A Singleton Set Containing Given Node
+
+    function Kruskal(G):
+        F = ∅
+
+        // Make a singleton set for each node
+        for each v ∈ G.V do
+            makeSet(v)
+
+        for each (u, v) in G.E ordered by weight(u, v) increasing:
+            // Avoid cycles
+            if findSet(u) = findSet(v):
+                continue
+
+            // Merge sets
+            F = F ∪ {(u, v)} ∪ {(v, u)}
+            union(findSet(u), findSet(v))
+        return F
+```
+
 ## Applications of Graph Algorithms
 
 ### Solving A Crime
