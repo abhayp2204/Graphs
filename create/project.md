@@ -200,6 +200,39 @@ Consider the following graph:
 **Time Complexity**
 O(V + E)
 
+### Topological Sort
+The motivation for topological sort lies in the fact that many real world situations can be modelled as a graph with directed edges where some events must occur before others such as school class prequisites, event scheduling, program build dependencies etc. A program cannot be built unless all its dependencies are first built, and a course cannot be taken unless its prerequisite courses have already been taken. 
+
+A topological ordering is an ordering of the nodeds in a directed graph where for each directed edge from node A nto node B, node A appears before node B in the ordering. Topological orderings are not unique. Not every graph has a topological ordering. Graphs with cycles belong to this category, as in a cycle there is nowhere to start. The only type of graph that has a valid topological ordering is a Directed Acyclic Graph(DAG). We will maintain a call stack S. Let T be the topological sort.
+
+- Pick an arbitrary node, say H. We will do DFS from here. S = [H]
+- From H we go to J and then M. S = [H, J, M]
+- From M, there is nowhere left to go, so we backtrack and add M as the last element of our topological sort. S = [H, J]. T = [M].
+- We then explore L and backtrack. T = [L, M]
+- Then we backtrack from J. S = [H]. T = [J, L, M]
+- This process continues until the DFS is complete. We end up with T = [C, B, E, F, K, A, D, G, H, I, J, L, M
+
+**Pseudocode**
+```java
+    N = Number Of Vertices
+    V = [false, ..., false] // Length V
+    T = [0, ..., 0]               // Length V
+    i = N - 1
+
+    function topsort(G):
+        for at from 0 to N-1:
+            if visited[at]:
+                continue
+            dfs(at, V, visitedNodes, G)
+            for nodeID in visitedNodes:
+                T[i] = nodeID
+                i = i - 1
+        return T
+```
+
+**Time Complexity**
+O(V + E)
+
 ### Dijkstra's Algorithm
 Dijkstra's Shortest Path Algorithm finds the shortest path between any two vertices in a graph. It's applications
 are clear when we use graphs to simulate roads of a city, a computer network, a social network etc. It not only
@@ -432,7 +465,7 @@ Graph based approaches may use single-shot and iterative schemes. In the single 
 
 **Graph Coloring**
 In the graph coloring problem, we have a graph that is simple and undirected, and we are seeking to assign colors to the vertices of the graph so that we use the minimum number of colors and no similar colors are adjacent to one another.
-- Coloring maps: In reach region of the map, we place a node, and draw edges between any neighbouring nodes. Now take the map away and we are left with a planar graph. We then show that a planar graph can be 4 colored, and that would mean that maps can always be 4 colored.
+- Coloring maps: In reach region of the map, we place a node, and draw edges between any neighbouring nodes. Now take the map away and we are left with a planar graph. We then show that a planar graph can be 4 colored, and that would mean that maps can always be 4 colored. The idea that we only need 4 colors was debated for a long time, and finally proved in the 1970's.
 - Lecture Time Table: A university typically has several lectures, some of which clash with one another. Assign a node for each lecture which has edges from this node and all the other nodes that it clashes with. Say we use graph coloring and we get 4 colors. Each of these colors would correspond to a different time slot. Any given time slot will not have courses that clash. Why? Clashing courses imply that there is an edge between said courses. If that were true, then it would be impossible for them to be assigned the same color.
 
 **Google's Knowledge Graph**
