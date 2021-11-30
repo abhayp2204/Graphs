@@ -362,9 +362,16 @@ The first few edges in sorted order along with their cost are IJ(0), AE(1), CI(1
         return F
 ```
 
+**Kruskal's Algorithm as a Greedy ALgorithm**
+Kruskal's Algorithm is similar to Prim's in the sense that it is also a greedy algorithm. A clear indication of this is that we sort the edges by cost and we proceed to add the lowest weight edges first, thereby making an optimal choice at each step.
+
+**Time Complexity**
+T(n) = O(1) + O(V) + O(ElogE) + O(VlogV) = O(ElogE) + O(VlogV)
+|E| >= |V| - 1 so T(n) = O(ElogE) + O(ElogE) = O(ElogE)
+
 ## Applications of Graph Algorithms
 
-### Solving A Crime
+**Solving A Crime**
 Let us first consider a simple scenario, and worry about a  more real life situation later.
 Say we have 3 suspects Alice(A), Bob(B) and Charlie(C). These are the statements made by them.
 A - I'm not the thief
@@ -410,3 +417,20 @@ Analyzing the graph in the same fashion, we arrive at the following result:
 
 In real life, we may not know the exact number of people telling the truth, but consider this situation. A group of 5 friends go on a camping trip and only 4 of them return. These 4 friends are interviewed individually. They are unlikely to lie, because if they do, their story will not be concurrent with the stories of the others. So we can deduce that B is more likely to be the killer than C, since 1 person lying is more likely than 3 people lying.
 
+**Chemistry**
+Graphs are used to model molecule structures for computer processing. Here atoms can be considered as vertices of a graph and the bonds that connect them together are represented as edges between them. These structures are created based on the properties of compounds and are taken for analysis and processing. This can be used to study the structure of molecules and to
+check similarity level between molecules.
+
+Let's say that scientists are aware of a certain protein that plays a crucial role in the activity of a certain disease. In an attempt to find a cure for this disease, they want to inhibit the function of this protein. One of the ways you can do this is by identifying a molecule that can bind to the protein. We want a molecule to bind to a particular target. This would eliminate many molecules right off the bat. We want our molecule to be selective, that is to bind only to the protein of interest. This is a very difficult problem as we have a large number of interdependent properties that we are trying to optimize over, and the space of theoretically possible drug like molecules is estimated to be from 10<sup>23</sup> to 10<sup>60</sup>. Hence the drug discovery phase tends to take multiple years, which we would like to shorten.
+
+As a result, we use something known as the deep generative model. This model inputs all the desired properties that we want our molecule to have, do some optimization, and output only the molecules that have those desired properties. These are classified into 3 approaches:
+- String based approaches
+- Graph based approaches
+- 3D approaches
+
+Graph based approaches may use single-shot and iterative schemes. In the single shot scheme, everytime we sample the model, we get an entire molecule(graph) all in one go. In the iterative scheme, everytime we sample the model, we build a single node at a time, and in this we build up our entire molecule. In general, the iteratvie schemes tend to perform better than the single shot schemes.
+
+**Graph Coloring**
+In the graph coloring problem, we have a graph that is simple and undirected, and we are seeking to assign colors to the vertices of the graph so that we use the minimum number of colors and no similar colors are adjacent to one another.
+- Coloring maps: In reach region of the map, we place a node, and draw edges between any neighbouring nodes. Now take the map away and we are left with a planar graph. We then show that a planar graph can be 4 colored, and that would mean that maps can always be 4 colored.
+- Lecture Time Table: A university typically has several lectures, some of which clash with one another. Assign a node for each lecture which has edges from this node and all the other nodes that it clashes with. Say we use graph coloring and we get 4 colors. Each of these colors would correspond to a different time slot. Any given time slot will not have courses that clash. Why? Clashing courses imply that there is an edge between said courses. If that were true, then it would be impossible for them to be assigned the same color.
